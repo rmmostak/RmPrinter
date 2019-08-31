@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/studentId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="160134"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/studentName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mustak Ahmmed"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/studentSession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2016-17"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+</LinearLayout>

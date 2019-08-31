@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Home"
+    tools:showIn="@layout/app_bar_home">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/linear1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5pt">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Session:"
+                android:textColor="@color/black"
+                android:textSize="20dp" />
+
+            <Spinner
+                android:id="@+id/session"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:dropDownWidth="wrap_content"
+                android:entries="@array/session"
+                android:padding="10dp"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/linear1"
+            android:layout_marginTop="10pt"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/listBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/green"
+                android:padding="10dp"
+                android:text="Show User"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <ListView
+                android:id="@+id/userList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dividerHeight="5dp"
+                android:padding="5dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
