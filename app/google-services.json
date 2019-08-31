@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "917192323068",
+    "firebase_url": "https://rmprinter-d060d.firebaseio.com",
+    "project_id": "rmprinter-d060d",
+    "storage_bucket": "rmprinter-d060d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917192323068:android:cf3516f0288ebba1",
+        "android_client_info": {
+          "package_name": "com.rmproduct.rmprinter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "917192323068-e8oopc94alari8o8bj3ud1mf3qfl3cfd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rmproduct.rmprinter",
+            "certificate_hash": "dcdf5f32acf7b9550a38aa7e9648aae8cf9e1c9f"
+          }
+        },
+        {
+          "client_id": "917192323068-t9okkbn0j6r2ir0q5gtf2dn6psu35514.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rmproduct.rmprinter",
+            "certificate_hash": "aa858d3616199c75de642ceff16367cac9e73496"
+          }
+        },
+        {
+          "client_id": "917192323068-l47tip4kn6mf0tkmpfgjbrn4gctlqd1n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr3mBQQ414ZnXXGXEvj6yzxS-kbyKuh3k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "917192323068-l47tip4kn6mf0tkmpfgjbrn4gctlqd1n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
