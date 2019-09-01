@@ -40,10 +40,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Home extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, ForceUpdateChecker.OnUpdateNeededListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        ForceUpdateChecker.OnUpdateNeededListener {
 
-    private DatabaseReference printerDatabase, databaseReference;
-    private TextView due, advance, advice, payment, bill;
+    private DatabaseReference printerDatabase, databaseReference, reference;
+    private TextView due, advance, advice, payment, bill, notice;
     private Float dueBill, advanceBill, paybill, billPay;
     private String Due, Advance, Bill, Pay, Session;
 
@@ -78,6 +79,22 @@ public class Home extends AppCompatActivity
         advice = findViewById(R.id.advice);
         payment = findViewById(R.id.payment);
         bill = findViewById(R.id.bill);
+        notice = findViewById(R.id.notice);
+
+        reference = FirebaseDatabase.getInstance().getReference("Notices");
+        reference.child("Latest Offer").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                String txt_notice = dataSnapshot.getValue().toString().trim();
+                notice.setText(txt_notice);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
