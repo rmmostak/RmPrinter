@@ -34,7 +34,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="rmproduct.121@gmail.com"
+        android:text="rmprinter@admin.com"
         android:textColor="@color/white"
         android:textSize="15sp" />
 

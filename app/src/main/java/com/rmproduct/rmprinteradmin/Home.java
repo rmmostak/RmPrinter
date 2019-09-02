@@ -76,6 +76,20 @@ public class Home extends AppCompatActivity
         listBtn = findViewById(R.id.listBtn);
         session = findViewById(R.id.session);
         userList = findViewById(R.id.userList);
+/*
+        noticeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String txt_notice = notice.getText().toString().trim();
+
+                reference = FirebaseDatabase.getInstance().getReference("Notices");
+
+                reference.child("Latest Offer").setValue(txt_notice);
+                notice.setText("");
+            }
+        });
+        */
 
         listBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -169,11 +183,14 @@ public class Home extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        /*if (id == R.id.nav_home) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_notice) {
 
-        } else if (id == R.id.nav_slideshow) {
+            startActivity(new Intent(getApplicationContext(), NoticeActivity.class));
+
+        } else if (id == R.id.nav_share) {
+
+        }
+        /*else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_tools) {
 
