@@ -60,6 +60,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "917192323068-caj3s5oesolkov30cq9sd9dd16pu676n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rmproduct.rmprinteradmin",
+            "certificate_hash": "38a1618b53b97f8347e3245451992d2d633d70bb"
+          }
+        },
+        {
           "client_id": "917192323068-a88g5deagqi04roa1kjdls4jmcj2vngl.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

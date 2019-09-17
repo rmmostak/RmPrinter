@@ -9,8 +9,8 @@
             android:icon="@drawable/ic_notifications"
             android:title="Notice" />
         <item
-            android:id="@+id/nav_share"
-            android:icon="@drawable/ic_menu_share"
+            android:id="@+id/nav_bill"
+            android:icon="@drawable/ic_payment_black_24dp"
             android:title="@string/menu_share" />
     </group>
 

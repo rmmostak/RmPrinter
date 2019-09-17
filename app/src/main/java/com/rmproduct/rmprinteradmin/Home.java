@@ -1,18 +1,10 @@
 package com.rmproduct.rmprinteradmin;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 
-import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.GravityCompat;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 
@@ -76,20 +68,6 @@ public class Home extends AppCompatActivity
         listBtn = findViewById(R.id.listBtn);
         session = findViewById(R.id.session);
         userList = findViewById(R.id.userList);
-/*
-        noticeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                String txt_notice = notice.getText().toString().trim();
-
-                reference = FirebaseDatabase.getInstance().getReference("Notices");
-
-                reference.child("Latest Offer").setValue(txt_notice);
-                notice.setText("");
-            }
-        });
-        */
 
         listBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -124,7 +102,14 @@ public class Home extends AppCompatActivity
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 UserInfo userInfo = userInfos.get(i);
-                showUpdateDialog(userInfo.getUid(), userInfo.getRoll(), userInfo.getSession());
+                Intent intent = new Intent(Home.this, BillMaking.class);
+
+                intent.putExtra("uid", userInfo.getUid());
+                intent.putExtra("roll", userInfo.getRoll());
+                intent.putExtra("name", userInfo.getName());
+
+                startActivity(intent);
+                //showUpdateDialog(userInfo.getUid(), userInfo.getRoll(), userInfo.getSession());
 
             }
         });
@@ -133,11 +118,10 @@ public class Home extends AppCompatActivity
 
     private void UserList(String session) {
         databaseReference = FirebaseDatabase.getInstance().getReference(session);
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.orderByChild("roll").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                userInfos.clear();
                 for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
                     UserInfo userInfo = userSnapshot.getValue(UserInfo.class);
                     userInfos.add(userInfo);
@@ -151,30 +135,9 @@ public class Home extends AppCompatActivity
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
+                Toast.makeText(getApplicationContext(), "Something went wrong, Please try again later!", Toast.LENGTH_LONG).show();
             }
         });
-    }
-/*
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home, menu);
-        return true;
-    }*/
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        /*if (id == R.id.action_settings) {
-            return true;
-        }*/
-
-        return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -187,18 +150,9 @@ public class Home extends AppCompatActivity
 
             startActivity(new Intent(getApplicationContext(), NoticeActivity.class));
 
-        } else if (id == R.id.nav_share) {
-
+        } else if (id == R.id.nav_bill) {
+            //startActivity(new Intent(getApplicationContext(), BillMaking.class));
         }
-        /*else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_tools) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }*/
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -207,10 +161,6 @@ public class Home extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        /*DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        }*/
 
         if (backPressedTime + 2000 > System.currentTimeMillis()) {
             moveTaskToBack(true);
@@ -225,7 +175,7 @@ public class Home extends AppCompatActivity
 
     }
 
-
+/*
     private void showUpdateDialog(final String id, String roll, String session) {
         final AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
 
@@ -236,8 +186,10 @@ public class Home extends AppCompatActivity
 
         final EditText bill = dialogView.findViewById(R.id.bill);
         final EditText pay = dialogView.findViewById(R.id.pay);
-        final TextView advance = dialogView.findViewById(R.id.advance);
         final TextView due = dialogView.findViewById(R.id.due);
+        final TextView advance = dialogView.findViewById(R.id.advance);
+        final TextView totalBill = dialogView.findViewById(R.id.totalBill);
+        final TextView totalPay = dialogView.findViewById(R.id.totalPay);
         final Button submit = dialogView.findViewById(R.id.submit);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Printer Info").child(id);
@@ -253,6 +205,8 @@ public class Home extends AppCompatActivity
 
                 advance.setText(printerInfo.getAdvance() + " TK.");
                 due.setText(printerInfo.getDue() + " TK.");
+                totalBill.setText("Total Bill: " + st_bill + " TK.");
+                totalPay.setText("Total Pay: " + st_pay + " TK.");
 
                 Adv = Float.parseFloat(st_advance);
                 Due = Float.parseFloat(st_due);
@@ -386,5 +340,5 @@ public class Home extends AppCompatActivity
         databaseReference.child("pay").setValue(pay);
 
         return true;
-    }
+    }*/
 }
