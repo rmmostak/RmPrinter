@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "917192323068-jkkplo7b84rp95tpg1fk55g51fmk6qdc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rmproduct.rmprinter",
+            "certificate_hash": "4def1c4568cfa2aad1372dab40ac4ad8c1ae3ebe"
+          }
+        },
+        {
           "client_id": "917192323068-e8oopc94alari8o8bj3ud1mf3qfl3cfd.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -28,6 +36,51 @@
           "android_info": {
             "package_name": "com.rmproduct.rmprinter",
             "certificate_hash": "aa858d3616199c75de642ceff16367cac9e73496"
+          }
+        },
+        {
+          "client_id": "917192323068-l47tip4kn6mf0tkmpfgjbrn4gctlqd1n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr3mBQQ414ZnXXGXEvj6yzxS-kbyKuh3k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "917192323068-l47tip4kn6mf0tkmpfgjbrn4gctlqd1n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917192323068:android:fb4aef047db8cc86",
+        "android_client_info": {
+          "package_name": "com.rmproduct.rmprinteradmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "917192323068-caj3s5oesolkov30cq9sd9dd16pu676n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rmproduct.rmprinteradmin",
+            "certificate_hash": "38a1618b53b97f8347e3245451992d2d633d70bb"
+          }
+        },
+        {
+          "client_id": "917192323068-a88g5deagqi04roa1kjdls4jmcj2vngl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rmproduct.rmprinteradmin",
+            "certificate_hash": "dcdf5f32acf7b9550a38aa7e9648aae8cf9e1c9f"
           }
         },
         {

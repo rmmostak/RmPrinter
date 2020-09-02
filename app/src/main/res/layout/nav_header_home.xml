@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/nav_header_height"
+    android:layout_height="200dp"
     android:background="@color/gray"
     android:gravity="bottom"
     android:orientation="vertical"
@@ -15,35 +15,61 @@
         android:layout_width="70dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
-        android:padding="5dp"
         android:layout_marginBottom="5dp"
         android:contentDescription="@string/nav_header_desc"
+        android:padding="5dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         app:srcCompat="@drawable/rm_printer" />
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical"
-        android:padding="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:padding="8dp">
 
         <TextView
             android:id="@+id/Name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rm Printer"
-            android:textColor="@color/black"
-            android:textStyle="bold"
+            android:text="Name: Rm Printer"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textSize="20sp" />
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/Roll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Roll: 160134"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/Session"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Session: 2016-17"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/Email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="rmproduct.121@gmail.com"
-            android:textColor="@color/black" />
+            android:text="Email: rmproduct.121@gmail.com"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
 
     </LinearLayout>
 

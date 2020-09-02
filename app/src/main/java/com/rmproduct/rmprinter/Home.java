@@ -46,10 +46,9 @@ public class Home extends AppCompatActivity
     private DatabaseReference printerDatabase, databaseReference, reference;
     private TextView due, advance, advice, payment, bill, notice;
     private Float dueBill, advanceBill, paybill, billPay;
-    private String Due, Advance, Bill, Pay, Session;
+    private String Due, Advance, Bill, Pay, Session, uid;
 
     private long backPressedTime;
-    private int counter = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +103,7 @@ public class Home extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-        final String uid = FirebaseAuth.getInstance().getUid();
+        uid = FirebaseAuth.getInstance().getUid();
         printerDatabase = FirebaseDatabase.getInstance().getReference("Printer Info").child(uid);
         printerDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -120,17 +119,10 @@ public class Home extends AppCompatActivity
                 dueBill = Float.parseFloat(Due);
                 advanceBill = Float.parseFloat(Advance);
 
-                /*billPay=Float.parseFloat(Bill);
-                paybill=Float.parseFloat(Pay);
-
-                if (billPay>paybill) {
-
-                }*/
-
                 if (dueBill > 0.0) {
-                    advice.setText("Please pay your due and get our service. Thank you.");
-                } else {
-                    advice.setText("");
+                    advice.setText("Please pay your due and get more services. Thank you.");
+                } else if (advanceBill > 0.0) {
+                    advice.setText("Thank you for advance payment.");
                 }
                 due.setText(Due + " Tk.");
                 advance.setText(Advance + " Tk.");
@@ -145,25 +137,6 @@ public class Home extends AppCompatActivity
                 Toast.makeText(getApplicationContext(), "Something went wrong, Please try again later!", Toast.LENGTH_LONG).show();
             }
         });
-
-        /*databaseReference = FirebaseDatabase.getInstance().getReference().child(Session).child(Id);
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                UserInfo userInfo = dataSnapshot.getValue(UserInfo.class);
-                String name = userInfo.getName();
-                String email = userInfo.getEmail();
-
-                studentName.setText(name);
-                studentEmail.setText(email);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });*/
 
         UpdateInfo();
 
@@ -180,7 +153,13 @@ public class Home extends AppCompatActivity
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(Home.this, LogIn.class));
 
-        } else if (id == R.id.nav_share) {
+        } else if (id==R.id.history) {
+            Intent intent=new Intent(Home.this, Billing.class);
+            intent.putExtra("uid", uid);
+            startActivity(intent);
+        }
+
+        else if (id == R.id.nav_share) {
 
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
             shareIntent.setType("text/plain");
@@ -228,6 +207,8 @@ public class Home extends AppCompatActivity
         View infoView = navigationView.getHeaderView(0);
         final TextView Name = infoView.findViewById(R.id.Name);
         final TextView Email = infoView.findViewById(R.id.Email);
+        final TextView Roll = infoView.findViewById(R.id.Roll);
+        final TextView txv_Session = infoView.findViewById(R.id.Session);
 
         final String uid = FirebaseAuth.getInstance().getUid();
         printerDatabase = FirebaseDatabase.getInstance().getReference("Printer Info").child(uid);
@@ -246,7 +227,9 @@ public class Home extends AppCompatActivity
                         UserInfo userInfo = dataSnapshot.getValue(UserInfo.class);
 
                         Name.setText(userInfo.getName());
-                        Email.setText(userInfo.getEmail());
+                        Email.setText("Email: " + userInfo.getEmail());
+                        Roll.setText("Roll: " + userInfo.getRoll());
+                        txv_Session.setText("Session: " + userInfo.getSession());
                     }
 
                     @Override
@@ -274,7 +257,13 @@ public class Home extends AppCompatActivity
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                redirectStore(updateUrl);
+
+                                final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(updateUrl));
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+
+                                //redirectStore(updateUrl);
+                                //Toast.makeText(getApplicationContext(), "This is the link for update", Toast.LENGTH_LONG).show();
                             }
                         }).setNegativeButton("No, thanks",
                         new DialogInterface.OnClickListener() {

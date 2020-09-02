@@ -28,7 +28,7 @@ import com.google.firebase.database.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*
 class ListAdapter extends ArrayAdapter<UserInfo> {
     private Activity context;
     private List<UserInfo> userInfoList;
@@ -57,7 +57,7 @@ class ListAdapter extends ArrayAdapter<UserInfo> {
         return listViewItem;
     }
 }
-
+*/
 public class Payment extends AppCompatActivity {
 
     private Button listBtn;
@@ -134,10 +134,10 @@ public class Payment extends AppCompatActivity {
 
                     userInfos.add(userInfo);
                 }
-
+/*
                 ListAdapter adapter = new ListAdapter(Payment.this, userInfos);
                 userList.setAdapter(adapter);
-            }
+            */}
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -155,14 +155,14 @@ public class Payment extends AppCompatActivity {
 
         final EditText _Bill = dialogView.findViewById(R.id.bill);
         final EditText _Pay = dialogView.findViewById(R.id.pay);
-        final Button submit = dialogView.findViewById(R.id.submit);
+        //final Button submit = dialogView.findViewById(R.id.submit);
 
 
         dialogBuilder.setTitle("Roll: " + roll);
         final AlertDialog alertDialog = dialogBuilder.create();
         alertDialog.show();
 
-        submit.setOnClickListener(new View.OnClickListener() {
+        /*submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final String bill = _Bill.getText().toString().trim();
@@ -245,17 +245,17 @@ public class Payment extends AppCompatActivity {
                             return;
                         }
 
-                        Toast.makeText(getApplicationContext(), Bill.toString()+"\n"+Pay.toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), Bill.toString() + "\n" + Pay.toString(), Toast.LENGTH_LONG).show();
 
-                        /*DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Printer Info").child(id);
+                        *//*DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Printer Info").child(id);
                         databaseReference.child("advance").setValue(Bill);
-                        databaseReference.child("due").setValue(Pay);*/
+                        databaseReference.child("due").setValue(Pay);*//*
 
 
-                        /*Due = Bill;
-                        Adv = Pay;*/
+                        *//*Due = Bill;
+                        Adv = Pay;*//*
                         //advance.setText(Pay);
-                        /*updateData(id, Bill, Pay);*/
+                        *//*updateData(id, Bill, Pay);*//*
 
                     }
 
@@ -266,13 +266,13 @@ public class Payment extends AppCompatActivity {
                     }
                 });
 
-                /*due.setText(Due);
-                advance.setText(Adv);*/
+                *//*due.setText(Due);
+                advance.setText(Adv);*//*
                 //updateData(id, Due, Adv);
                 alertDialog.dismiss();
 
             }
-        });
+        });*/
 
     }
 

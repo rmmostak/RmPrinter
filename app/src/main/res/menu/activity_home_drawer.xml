@@ -9,6 +9,10 @@
             android:icon="@drawable/ic_sign_out"
             android:title="Logout" />
         <item
+            android:id="@+id/history"
+            android:icon="@drawable/ic_history"
+            android:title="History" />
+        <item
             android:id="@+id/nav_share"
             android:icon="@drawable/ic_menu_share"
             android:title="@string/menu_share" />

@@ -25,7 +25,7 @@ public class App extends Application {
         // set in-app defaults
         Map<String, Object> remoteConfigDefaults = new HashMap();
         remoteConfigDefaults.put(ForceUpdateChecker.KEY_UPDATE_REQUIRED, false);
-        remoteConfigDefaults.put(ForceUpdateChecker.KEY_CURRENT_VERSION, "1.0");
+        remoteConfigDefaults.put(ForceUpdateChecker.KEY_CURRENT_VERSION, "1.3");
         remoteConfigDefaults.put(ForceUpdateChecker.KEY_UPDATE_URL, "https://rmproduct121.blogspot.com/2019/08/rm-printer-user-applicaion.html");
 
         firebaseRemoteConfig.setDefaults(remoteConfigDefaults);
